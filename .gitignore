@@ -1,2 +1,4 @@
 db.sqlite3
 /taskmanager/__pycache__/
+/tasks/__pycache__/
+/tasks/migrations/__pycache__/

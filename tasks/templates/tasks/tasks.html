@@ -1,0 +1,31 @@
+{% extends 'tasks/base.html' %}
+
+{% block title %}
+Менеджер задач
+{% endblock %}
+
+{% block content %}
+<div class="row row-cols-1 row-cols-md-3 mb-3">
+
+  {% for task in tasks %}
+  <div class="col">
+    <div class="card mb-4 rounded-3 shadow-sm">
+      <div class="card-header py-3">
+        <h4 class="my-0 fw-normal">{{task.title}}</h4>
+      </div>
+      <div class="card-body">
+        <ul class="list-unstyled mt-3 mb-4">
+          <li><span class="fw-bold">Дата начала</span>: {{task.date_start}}</li>
+          <li><span class="fw-bold">Дата окончания</span>: {{task.date_end}}</li>
+          <li><span class="fw-bold">Статус</span>: {{task.status}}</li>
+          <li><span class="fw-bold">Приоритет</span>: {{task.priority}}</li>
+          <li><span class="fw-bold">Описание</span>: {{task.description}}</li>
+        </ul>
+        <a href="#" class="w-100 btn btn-lg btn-outline-primary">Редактировать</a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+
+</div>
+{% endblock %}
