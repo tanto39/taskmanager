@@ -1,0 +1,18 @@
+{% extends 'tasks/base.html' %}
+
+{% block title %}
+{{title}}
+{% endblock %}
+ 
+{% block content %}
+<h1>{{title}}</h1>
+<form method="post">
+  {% csrf_token %}
+  {% for f in form %}
+    <div class="mt-3"><label class="form-label" for="{{ f.id_for_label }}">{{f.label}}:</label></div>
+    <div>{{ f }}</div>
+    <div class="form-error">{{ f.errors }}</div>
+  {% endfor %}
+  <button type="submit" class="btn btn-success mt-3">Войти</button>
+</form>
+{% endblock %}

@@ -5,8 +5,16 @@
 {% endblock %}
 
 {% block content %}
-<div class="row row-cols-1 row-cols-md-3 mb-3">
+<div class="row mb-4">
+  <div class="col-md-3">
+    <a href="{% url 'create' %}" class="w-100 btn btn-lg btn-outline-primary">Создать задачу</a>
+  </div>
+</div>
 
+<h1 class="h3 mb-4">Задачи пользователя {{user.username}}</h1>
+
+<div class="row row-cols-1 row-cols-md-3 mb-3">
+  
   {% for task in tasks %}
   <div class="col">
     <div class="card mb-4 rounded-3 shadow-sm">
@@ -21,7 +29,7 @@
           <li><span class="fw-bold">Приоритет</span>: {{task.priority}}</li>
           <li><span class="fw-bold">Описание</span>: {{task.description}}</li>
         </ul>
-        <a href="#" class="w-100 btn btn-lg btn-outline-primary">Редактировать</a>
+        <a href="{% url 'edit' task_id=task.id %}" class="w-100 btn btn-lg btn-outline-primary">Редактировать</a>
       </div>
     </div>
   </div>

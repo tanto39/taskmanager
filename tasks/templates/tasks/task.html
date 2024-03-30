@@ -1,0 +1,29 @@
+{% extends 'tasks/base.html' %}
+
+{% block title %}
+{{title}}
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+  <h1>{{title}}</h1>
+
+  {% if message %}
+  <div class="alert alert-success mt-4">{{message}}</div>
+  {% endif %}
+
+  <form method="POST">
+    {% csrf_token %}
+    {{ form }}
+    <button name="save" type="submit" class="btn btn-success mt-4">Сохранить</button>
+  </form>
+
+  {% if task_id %}
+  <form method="POST" action="{% url 'delete' task_id=task_id%}">
+    {% csrf_token %}
+    <button name="delete" type="submit" class="btn btn-danger mt-4">Удалить</button>
+  </form>
+  {% endif %}
+</div>
+{% endblock %}
